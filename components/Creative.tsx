@@ -57,7 +57,7 @@ function CreativeTile({
         type="button"
         onClick={() => setFlipped((f) => !f)}
         aria-label={`${title} — flip for details`}
-        className={`relative block h-[21rem] w-full rounded-md shadow-paper transition-transform duration-[600ms] [transform-style:preserve-3d] ${
+        className={`relative block h-[21rem] w-full rounded-md shadow-paper transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ${
           flipped ? "[transform:rotateY(180deg)]" : ""
         }`}
       >
@@ -84,7 +84,7 @@ function CreativeTile({
           <div className="px-1 pt-2">
             <p className="truncate font-hand text-2xl leading-tight text-paper-ink">{title}</p>
             <p className="font-mono text-[9px] uppercase tracking-widest text-clay">
-              {category} · tap to flip
+              {category} · hover to flip
             </p>
           </div>
         </div>

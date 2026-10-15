@@ -39,6 +39,14 @@ const journey = [
   },
   {
     seat: "05",
+    role: "Head Girl",
+    org: "School",
+    what: "Led the student body as Head Girl — representing students, helping run school events, and setting the tone for the team of prefects.",
+    when: "",
+    tags: ["Leadership", "Student body", "Responsibility"],
+  },
+  {
+    seat: "06",
     role: "Research & Technical Exploration",
     org: "Self-directed",
     what: "Exploring research questions around blockchain, identity and cybersecurity — decentralized identity using verifiable credentials and cryptography, and threat validation using blockchain — while learning to turn ideas into structured, testable work.",
