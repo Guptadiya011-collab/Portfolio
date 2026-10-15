@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper-line: #aeb9cf;
+}
+
+/* Native, instant wheel/trackpad scrolling. Only anchor-link jumps ease. */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: #17150f;
+  color: #f0e6d1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ---------- Textures ---------- */
+
+/* Warm charcoal "desk" with a faint grain + vignette */
+.desk-surface {
+  background-color: #17150f;
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(224, 151, 58, 0.06), transparent 60%),
+    radial-gradient(100% 60% at 50% 110%, rgba(79, 176, 198, 0.05), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Cream paper */
+.paper-surface {
+  background-color: #f0e6d1;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.05'/%3E%3C/svg%3E");
+  color: #2a251c;
+}
+
+/* Grid paper (blueprint on cream) */
+.grid-paper {
+  background-color: #f0e6d1;
+  background-image:
+    linear-gradient(rgba(174, 185, 207, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(174, 185, 207, 0.55) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* Lined paper (ruled) */
+.lined-paper {
+  background-color: #f4ecda;
+  background-image:
+    linear-gradient(rgba(120, 150, 200, 0.4) 1px, transparent 1px);
+  background-size: 100% 30px;
+  background-position: 0 12px;
+}
+
+/* Dark blueprint grid (technical workstation) */
+.blueprint {
+  background-color: #17150f;
+  background-image:
+    linear-gradient(rgba(79, 176, 198, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 176, 198, 0.10) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+/* ---------- Utilities ---------- */
+
+.tape {
+  position: absolute;
+  width: 92px;
+  height: 30px;
+  background: rgba(224, 197, 138, 0.55);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(0.5px);
+}
+.tape::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0 4px,
+    rgba(255, 255, 255, 0.15) 4px 5px
+  );
+}
+
+.text-stroke-ink {
+  -webkit-text-stroke: 1px #2a251c;
+}
+
+.screen-glow {
+  box-shadow: 0 0 0 1px rgba(127, 225, 242, 0.25),
+    0 0 60px -10px rgba(127, 225, 242, 0.4);
+}
+
+/* Hide scrollbar for horizontal marquees */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
